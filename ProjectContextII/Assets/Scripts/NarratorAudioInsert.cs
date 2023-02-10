@@ -45,4 +45,9 @@ public class NarratorAudioInsert : MonoBehaviour
             if (timedEventTime < 0) timedEvent.Invoke();
         }
     }
+
+    public void DebugMessageEvent()
+    {
+        Debug.Log("Test!!!");
+    }
 }
