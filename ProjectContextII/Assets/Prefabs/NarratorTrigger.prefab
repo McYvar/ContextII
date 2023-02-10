@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1648050053579627413}
   - component: {fileID: 1648050053579627412}
   - component: {fileID: 1648050053579627414}
+  - component: {fileID: 5854922832734471968}
   m_Layer: 0
   m_Name: NarratorTrigger
   m_TagString: Untagged
@@ -59,12 +60,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   narratorMaster: {fileID: 0}
-  audioClip: {fileID: 0}
+  audioClip: {fileID: 8300000, guid: 1a77cfbffc432cb42b8f00520511416c, type: 3}
   events:
     m_PersistentCalls:
       m_Calls: []
-  doInterupt: 0
+  doInterupt: 1
+  doRemove: 1
   timedEventTime: 0
   timedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &5854922832734471968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1648050053579627411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65bac098add70d149a532a9170ef955c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableSubtitles: 0
+  subtitles: []

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+[RequireComponent(typeof(BoxCollider))]
 public class NarratorAudioInsert : MonoBehaviour
 {
     [Header("Always add the narratorMaster object here")]
@@ -13,12 +14,21 @@ public class NarratorAudioInsert : MonoBehaviour
     [SerializeField] UnityEvent events;
 
     [Space(10), Header("Check if this is audio for interuption")]
-    [SerializeField] bool doInterupt;
+    [SerializeField] bool doInterupt = true;
+
+    [Space(10), Header("Check if this hitbox should disapear")]
+    [SerializeField] bool doRemove = true;
+    BoxCollider myCollider;
 
     [Space(10), Header("Do Event after certain amount of time")]
     [SerializeField] float timedEventTime;
     [SerializeField] UnityEvent timedEvent;
     float timedEventTimer;
+
+    private void Awake()
+    {
+        myCollider = GetComponent<BoxCollider>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -35,14 +45,19 @@ public class NarratorAudioInsert : MonoBehaviour
         else narratorMaster.PlayAudioClip(audioClip);
 
         if (timedEvent.GetPersistentEventCount() > 0) timedEventTimer = timedEventTime;
+
+        if (doRemove)
+        {
+            myCollider.enabled = false;
+        }
     }
 
     private void Update()
     {
         if (timedEventTimer > 0)
         {
-            timedEventTime -= Time.deltaTime;            
-            if (timedEventTime < 0) timedEvent.Invoke();
+            timedEventTimer -= Time.deltaTime;
+            if (timedEventTimer < 0) timedEvent.Invoke();
         }
     }
 
