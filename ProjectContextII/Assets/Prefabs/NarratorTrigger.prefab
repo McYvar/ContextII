@@ -59,11 +59,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   narratorMaster: {fileID: 0}
-  audioClip: {fileID: 0}
+  audioClip: {fileID: 8300000, guid: 1a77cfbffc432cb42b8f00520511416c, type: 3}
   events:
     m_PersistentCalls:
       m_Calls: []
-  doInterupt: 0
+  doInterupt: 1
+  doRemove: 1
   timedEventTime: 0
   timedEvent:
     m_PersistentCalls:
