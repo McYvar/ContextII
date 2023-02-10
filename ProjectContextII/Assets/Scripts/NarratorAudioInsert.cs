@@ -21,11 +21,6 @@ public class NarratorAudioInsert : MonoBehaviour
     [SerializeField] bool doRemove = true;
     BoxCollider myCollider;
 
-    [Space(10), Header("Do Event after certain amount of time")]
-    [SerializeField] float timedEventTime;
-    [SerializeField] UnityEvent timedEvent;
-    float timedEventTimer;
-
     SubtitleSystem subtitleSystem;
 
     private void Awake()
@@ -48,23 +43,12 @@ public class NarratorAudioInsert : MonoBehaviour
         if (events.GetPersistentEventCount() > 0) narratorMaster.PlayAudioClip(audioClip, events, audioStartTime);
         else narratorMaster.PlayAudioClip(audioClip, audioStartTime);
 
-        if (timedEvent.GetPersistentEventCount() > 0) timedEventTimer = timedEventTime;
-
         if (doRemove)
         {
             myCollider.enabled = false;
         }
 
         subtitleSystem.StartSubtitles();
-    }
-
-    private void Update()
-    {
-        if (timedEventTimer > 0)
-        {
-            timedEventTimer -= Time.deltaTime;
-            if (timedEventTimer < 0) timedEvent.Invoke();
-        }
     }
 
     public void DebugMessageEvent()
