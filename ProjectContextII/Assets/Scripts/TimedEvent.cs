@@ -15,6 +15,11 @@ public class TimedEvent : MonoBehaviour
     BoxCollider myCollider;
     int currentEventIterator = 0;
 
+    private void Awake()
+    {
+        myCollider = GetComponent<BoxCollider>();
+        myCollider.isTrigger = true;
+    }
 
     private void Update()
     {
@@ -26,6 +31,13 @@ public class TimedEvent : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (!repeatable)
+        {
+            myCollider.enabled = false;
+        }
+
+        currentEventIterator = 0;
+        timer = 0;
         if (other == null) return;
         PlayerController player = other.GetComponent<PlayerController>();
         if (player == null) return;
@@ -33,11 +45,7 @@ public class TimedEvent : MonoBehaviour
         if (timedEvents.Length == 0) return;
         StartCoroutine(nextEvent(timedEvents[0]));
 
-        if (!repeatable)
-        {
-            myCollider.enabled = false;
-            currentEventIterator = 0;
-        }
+        running = true;
     }
 
     IEnumerator nextEvent(TimedEventStruct currentEvent)
@@ -46,7 +54,8 @@ public class TimedEvent : MonoBehaviour
         currentEvent.myEvent.Invoke();
 
         currentEventIterator++;
-        if (currentEventIterator != timedEvents.Length) StartCoroutine(nextEvent(timedEvents[currentEventIterator]));
+        if (currentEventIterator < timedEvents.Length) StartCoroutine(nextEvent(timedEvents[currentEventIterator]));
+        else running = false;
     }
 }
 

@@ -26,6 +26,7 @@ public class NarratorAudioInsert : MonoBehaviour
     private void Awake()
     {
         myCollider = GetComponent<BoxCollider>();
+        myCollider.isTrigger = true;
         subtitleSystem = GetComponent<SubtitleSystem>();
     }
 
@@ -49,10 +50,5 @@ public class NarratorAudioInsert : MonoBehaviour
         }
 
         subtitleSystem.StartSubtitles();
-    }
-
-    public void DebugMessageEvent()
-    {
-        Debug.Log("Test!!!");
     }
 }

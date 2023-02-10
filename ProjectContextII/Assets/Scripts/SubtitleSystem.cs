@@ -48,7 +48,7 @@ public class SubtitleSystem : MonoBehaviour
     IEnumerator CurrentSentence(SubtitleInput currentSubtitle)
     {
         currentIteration++;
-        if (currentIteration != subtitles.Length) StartCoroutine(NextSentence(subtitles[currentIteration]));
+        if (currentIteration < subtitles.Length) StartCoroutine(NextSentence(subtitles[currentIteration]));
         else doLast = true;
 
         int currentSymbol = 0;
