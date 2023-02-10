@@ -7,11 +7,15 @@ public class NarratorMaster : MonoBehaviour
 {
     [Header("Starting audio, leave empty if not needed")]
     [SerializeField] AudioClip startClip;
+    [SerializeField] float startAudioStartTime;
     [SerializeField] UnityEvent eventsOnFinishingStartingClip;
 
     [Space(10), Header("Main audiomixer for the narrator")]
     [SerializeField] AudioMixerGroup narratorMixerGroup;
     [SerializeField] AudioSource playerAudioSource; // source in 3d space would be in the players their head
+
+    [Space(10), Header("Add subtitles aswell if needed")]
+    [SerializeField] SubtitleSystem currentSubtitles;
 
     private void Awake()
     {
@@ -22,9 +26,11 @@ public class NarratorMaster : MonoBehaviour
     {
         if (startClip != null)
         {
-            PlayAudioClip(startClip);
+            PlayAudioClip(startClip, startAudioStartTime);
             if (eventsOnFinishingStartingClip.GetPersistentEventCount() > 0)
                 StartCoroutine(RunEventAfter(startClip.length, eventsOnFinishingStartingClip));
+
+            if (currentSubtitles != null) currentSubtitles.StartSubtitles();
         }
     }
 
@@ -36,21 +42,46 @@ public class NarratorMaster : MonoBehaviour
     }
 
     // method to call audio on trigger
-    public void PlayAudioClip(AudioClip audioClip)
+    public void PlayAudioClip(AudioClip audioClip, float startTime)
     {
-        playerAudioSource.PlayOneShot(audioClip);
+        playerAudioSource.clip = audioClip;
+        playerAudioSource.time = startTime;
+        playerAudioSource.Play();
     }
 
     // method to call audio on trigger with event overload
-    public void PlayAudioClip(AudioClip audioclip, UnityEvent newEvent)
+    public void PlayAudioClip(AudioClip audioClip, UnityEvent newEvent, float startTime)
     {
-        playerAudioSource.PlayOneShot(audioclip);
-        StartCoroutine(RunEventAfter(audioclip.length, newEvent));
+        playerAudioSource.clip = audioClip;
+        playerAudioSource.time = startTime;
+        playerAudioSource.Play();
+        StartCoroutine(RunEventAfter(audioClip.length, newEvent));
     }
 
     // Stop the audio for interuption
     public void StopPlayingCurrentClip()
     {
         playerAudioSource.Stop();
+    }
+
+    public void PauseAudio()
+    {
+        playerAudioSource.Pause();
+    }
+
+    public void ResumeAudio()
+    {
+        playerAudioSource.UnPause();
+    }
+
+    public float GetAudioPlayingTime()
+    {
+        return playerAudioSource.time;
+    }
+
+    public void SetNewSubtitles(SubtitleSystem newSubtitles)
+    {
+        currentSubtitles?.StopActiveSubtitles();
+        currentSubtitles = newSubtitles;
     }
 }

@@ -60,7 +60,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   narratorMaster: {fileID: 0}
-  audioClip: {fileID: 8300000, guid: 1a77cfbffc432cb42b8f00520511416c, type: 3}
+  audioClip: {fileID: 0}
+  audioStartTime: 0
   events:
     m_PersistentCalls:
       m_Calls: []
@@ -82,5 +83,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65bac098add70d149a532a9170ef955c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enableSubtitles: 0
+  narratorMaster: {fileID: 0}
+  subtitleText: {fileID: 0}
   subtitles: []
