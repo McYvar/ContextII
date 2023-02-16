@@ -6,8 +6,8 @@ using Unity.VisualScripting;
 
 public class SubtitleSystem : MonoBehaviour
 {
-    [Header("Always add the narratorMaster script here")]
-    [SerializeField] NarratorMaster narratorMaster;
+    [Header("Always add the audioMaster script here")]
+    [SerializeField] AudioMaster audioMaster;
 
     public static bool enableSubtitles = true;
     [SerializeField] TMP_Text subtitleText;
@@ -26,13 +26,13 @@ public class SubtitleSystem : MonoBehaviour
         if (enableSubtitles) subtitleText.enabled = true;
         else subtitleText.enabled = false;
 
-        subtitleTimer = narratorMaster.GetAudioPlayingTime();
+        subtitleTimer = audioMaster.GetAudioPlayingTime();
     }
 
     public void StartSubtitles()
     {
         if (subtitles.Length == 0) return;
-        narratorMaster.SetNewSubtitles(this);
+        audioMaster.SetNewSubtitles(this);
         currentIteration = 0;
         goNext = false;
         doLast = false;

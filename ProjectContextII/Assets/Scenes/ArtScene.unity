@@ -2827,6 +2827,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7859606446804237295, guid: b5ffe2be7b509d94fa357d95e23fd329, type: 3}
+      propertyPath: walkingForce
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7859606446804237295, guid: b5ffe2be7b509d94fa357d95e23fd329, type: 3}
       propertyPath: playerCameraTransform
       value: 
       objectReference: {fileID: 178895585}

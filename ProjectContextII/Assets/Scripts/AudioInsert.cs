@@ -4,10 +4,10 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(BoxCollider)), RequireComponent(typeof(SubtitleSystem))]
-public class NarratorAudioInsert : MonoBehaviour
+public class AudioInsert : MonoBehaviour
 {
-    [Header("Always add the narratorMaster script here")]
-    [SerializeField] NarratorMaster narratorMaster;
+    [Header("Always add the audioMaster script here")]
+    [SerializeField] AudioMaster audioMaster;
 
     [Space(10), Header("Audio file for insertion")]
     [SerializeField] AudioClip audioClip;
@@ -38,11 +38,11 @@ public class NarratorAudioInsert : MonoBehaviour
 
         if (doInterupt)
         {
-            narratorMaster.StopPlayingCurrentClip();
+            audioMaster.StopPlayingCurrentClip();
         }
 
-        if (events.GetPersistentEventCount() > 0) narratorMaster.PlayAudioClip(audioClip, events, audioStartTime);
-        else narratorMaster.PlayAudioClip(audioClip, audioStartTime);
+        if (events.GetPersistentEventCount() > 0) audioMaster.PlayAudioClip(audioClip, events, audioStartTime);
+        else audioMaster.PlayAudioClip(audioClip, audioStartTime);
 
         if (doRemove)
         {

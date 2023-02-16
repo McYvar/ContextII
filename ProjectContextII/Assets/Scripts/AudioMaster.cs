@@ -3,15 +3,15 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Events;
 
-public class NarratorMaster : MonoBehaviour
+public class AudioMaster : MonoBehaviour
 {
     [Header("Starting audio, leave empty if not needed")]
     [SerializeField] AudioClip startClip;
     [SerializeField] float startAudioStartTime;
     [SerializeField] UnityEvent eventsOnFinishingStartingClip;
 
-    [Space(10), Header("Main audiomixer for the narrator")]
-    [SerializeField] AudioMixerGroup narratorMixerGroup;
+    [Space(10), Header("Main audiomixer for the audio")]
+    [SerializeField] AudioMixerGroup audioMixerGroup;
     [SerializeField] AudioSource playerAudioSource; // source in 3d space would be in the players their head
 
     [Space(10), Header("Add subtitles aswell if needed")]
@@ -19,7 +19,7 @@ public class NarratorMaster : MonoBehaviour
 
     private void Awake()
     {
-        playerAudioSource.outputAudioMixerGroup = narratorMixerGroup;
+        playerAudioSource.outputAudioMixerGroup = audioMixerGroup;
     }
 
     private void Start()
@@ -56,6 +56,11 @@ public class NarratorMaster : MonoBehaviour
         playerAudioSource.time = startTime;
         playerAudioSource.Play();
         StartCoroutine(RunEventAfter(audioClip.length, newEvent));
+    }
+
+    public void PlayAudioOneshot(AudioClip audioClip)
+    {
+        playerAudioSource.PlayOneShot(audioClip);
     }
 
     // Stop the audio for interuption

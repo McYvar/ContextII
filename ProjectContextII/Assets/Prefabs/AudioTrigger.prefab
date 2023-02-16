@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1648050053579627414}
   - component: {fileID: 5854922832734471968}
   m_Layer: 0
-  m_Name: NarratorTrigger
+  m_Name: AudioTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 301fc125473b32f47bcfd1d92715ab15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  narratorMaster: {fileID: 0}
+  audioMaster: {fileID: 0}
   audioClip: {fileID: 0}
   audioStartTime: 0
   events:
@@ -67,10 +67,6 @@ MonoBehaviour:
       m_Calls: []
   doInterupt: 1
   doRemove: 1
-  timedEventTime: 0
-  timedEvent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &5854922832734471968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83,6 +79,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65bac098add70d149a532a9170ef955c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  narratorMaster: {fileID: 0}
+  audioMaster: {fileID: 0}
   subtitleText: {fileID: 0}
   subtitles: []

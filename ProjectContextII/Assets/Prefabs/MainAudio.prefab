@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2004108594051887519}
   - component: {fileID: 2627017627774850538}
   m_Layer: 0
-  m_Name: Narrator
+  m_Name: MainAudio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42,17 +42,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 2004108594051887516}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59bed4483d18233458e56755a31597f6, type: 3}
+  m_Script: {fileID: 11500000, guid: 2475812eea97c8e4abcf438227e4c52d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startClip: {fileID: 8300000, guid: 1a77cfbffc432cb42b8f00520511416c, type: 3}
+  startClip: {fileID: 0}
   startAudioStartTime: 0
   eventsOnFinishingStartingClip:
     m_PersistentCalls:
       m_Calls: []
-  narratorMixerGroup: {fileID: 24300002, guid: bccacd443c2c8b84da6647c3ab2b07a9, type: 2}
+  audioMixerGroup: {fileID: 24300002, guid: bccacd443c2c8b84da6647c3ab2b07a9, type: 2}
   playerAudioSource: {fileID: 0}
-  currentSubtitles: {fileID: 2627017627774850538}
+  currentSubtitles: {fileID: 0}
 --- !u!114 &2627017627774850538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65,6 +65,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65bac098add70d149a532a9170ef955c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  narratorMaster: {fileID: 2004108594051887519}
+  audioMaster: {fileID: 2004108594051887519}
   subtitleText: {fileID: 0}
   subtitles: []
