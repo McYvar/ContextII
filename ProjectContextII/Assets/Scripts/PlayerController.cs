@@ -13,7 +13,6 @@ public class PlayerController : MonoBehaviour
     Rigidbody rb;
 
     public Camera playerCameraTransform;
-    [SerializeField] Vector3 playerCameraOffset;
 
     [SerializeField] float cameraSensitivity;
 
@@ -24,20 +23,13 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-
-        // later added into the UI section
-        Cursor.visible = false;
     }
 
     private void Update()
     {
         verticalInput = Convert.ToInt16(Input.GetKey(KeyCode.W)) - Convert.ToInt16(Input.GetKey(KeyCode.S));
         horizontalInput = Convert.ToInt16(Input.GetKey(KeyCode.D)) - Convert.ToInt16(Input.GetKey(KeyCode.A));
-    }
 
-    private void LateUpdate()
-    {
-        CameraFollowsPlayer();
         CameraMouseInput();
     }
 
@@ -67,12 +59,6 @@ public class PlayerController : MonoBehaviour
         Vector3 inputVector = new Vector3(horizontalInput, 0, verticalInput);
         if (inputVector.magnitude > 1) return inputVector.normalized;
         else return inputVector;
-    }
-
-    // the main camera is not in hierachy with the player object, instead it just follows the players head
-    void CameraFollowsPlayer()
-    {
-        playerCameraTransform.transform.position = playerOrientation.position + playerCameraOffset;
     }
 
     void CameraMouseInput()
