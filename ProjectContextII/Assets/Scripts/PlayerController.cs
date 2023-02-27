@@ -12,8 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform playerOrientation;
     Rigidbody rb;
 
-    [SerializeField] Transform playerCameraTransform;
-    [SerializeField] Vector3 playerCameraOffset;
+    public Camera playerCameraTransform;
 
     [SerializeField] float cameraSensitivity;
 
@@ -30,12 +29,8 @@ public class PlayerController : MonoBehaviour
     {
         verticalInput = Convert.ToInt16(Input.GetKey(KeyCode.W)) - Convert.ToInt16(Input.GetKey(KeyCode.S));
         horizontalInput = Convert.ToInt16(Input.GetKey(KeyCode.D)) - Convert.ToInt16(Input.GetKey(KeyCode.A));
-        CameraMouseInput();
-    }
 
-    private void LateUpdate()
-    {
-        CameraFollowsPlayer();
+        CameraMouseInput();
     }
 
     private void FixedUpdate()
@@ -56,9 +51,9 @@ public class PlayerController : MonoBehaviour
 
         CounterMovement(magnitude);
 
-        rb.AddForce(Quaternion.Euler(0, playerCameraTransform.eulerAngles.y, 0) * SurfaceInputVector() * walkingForce);
+        rb.AddForce(Quaternion.Euler(0, playerCameraTransform.transform.eulerAngles.y, 0) * SurfaceInputVector() * walkingForce);
     }
-
+    
     Vector3 SurfaceInputVector()
     {
         Vector3 inputVector = new Vector3(horizontalInput, 0, verticalInput);
@@ -66,25 +61,19 @@ public class PlayerController : MonoBehaviour
         else return inputVector;
     }
 
-    // the main camera is not in hierachy with the player object, instead it just follows the players head
-    void CameraFollowsPlayer()
-    {
-        playerCameraTransform.position = playerOrientation.position + playerCameraOffset;
-    }
-
     void CameraMouseInput()
     {
         float mouseX = Input.GetAxisRaw("Mouse X");
         float mouseY = -Input.GetAxisRaw("Mouse Y");
 
-        float eulerX = playerCameraTransform.eulerAngles.x;
+        float eulerX = playerCameraTransform.transform.eulerAngles.x;
         if (eulerX > 180 && eulerX <= 360) eulerX -= 360;
 
         float resultXRotation = Mathf.Clamp(eulerX + mouseY * cameraSensitivity, -90, 90);
-        float resultYRotation = playerCameraTransform.eulerAngles.y + mouseX * cameraSensitivity;
+        float resultYRotation = playerCameraTransform.transform.eulerAngles.y + mouseX * cameraSensitivity;
 
-        playerCameraTransform.rotation = Quaternion.Euler(resultXRotation, resultYRotation, 0);
-        playerOrientation.rotation = Quaternion.Euler(0, playerCameraTransform.eulerAngles.y, 0);
+        playerCameraTransform.transform.rotation = Quaternion.Euler(resultXRotation, resultYRotation, 0);
+        playerOrientation.rotation = Quaternion.Euler(0, playerCameraTransform.transform.eulerAngles.y, 0);
     }
 
     private void CounterMovement(Vector2 relativeVelocity)
