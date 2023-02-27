@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -10,11 +11,12 @@ public class MenuUIInteraction : MonoBehaviour
     Canvas prevUI;
     Canvas myUI;
 
-    [Header("Only assign the Menu Key if this is the first menu in line")]
+    [Header("Only assign items to the top level UI")]
+    [SerializeField] GameState startState = GameState.NONE;
     [SerializeField] KeyCode menuKey; // replace in commandpattern later?
-    [SerializeField] bool startCanvas;
+    bool startCanvas;
 
-    public static bool DoUI;
+    public static GameState gameState;
 
     private void Awake()
     {
@@ -24,41 +26,72 @@ public class MenuUIInteraction : MonoBehaviour
 
     private void Start()
     {
-        if (startCanvas)
+        if (startState != GameState.NONE)
         {
-            DoUI = true;
+            startCanvas = true;
+            gameState = startState;
             myUI.enabled = true;
+            SwitchGameState(gameState);
+        }
+        else
+        {
+            startCanvas = false;
         }
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(menuKey) && !startCanvas)
+        if (Input.GetKeyDown(menuKey))
         {
-            if (!myUI.enabled) return;
-            if (prevUI != null)
+            EventSystem.current.GetComponent<EventSystem>().SetSelectedGameObject(null);
+            if (!startCanvas && myUI.enabled)
             {
-                myUI.enabled = false;
-                prevUI.enabled = true;
+                if (prevUI != null)
+                {
+                    OnClickPrevMenu();
+                }
             }
-            else if (DoUI) DoUI = false;
-            else
-            {
-                DoUI = true;
-                myUI.enabled = true;
-            }
-        }
 
-        if (DoUI)
-        {
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.Confined;
+            if (startCanvas)
+            {
+                if (myUI.enabled && gameState == GameState.GAME_PAUSED)
+                {
+                    myUI.enabled = false;
+                    SwitchGameState(GameState.GAME_PLAYING);
+                }
+                else if(!myUI.enabled && gameState == GameState.GAME_PLAYING)
+                {
+                    myUI.enabled = true;
+                    SwitchGameState(GameState.GAME_PAUSED);
+                }
+            }
         }
-        else
+    }
+
+    public void SwitchGameState(GameState newState)
+    {
+        gameState = newState;
+
+        switch (gameState)
         {
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
-            myUI.enabled = false;
+            case GameState.GAME_START:
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.Confined;
+                Time.timeScale = 1;
+                break;
+            case GameState.GAME_PAUSED:
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.Confined;
+                Time.timeScale = 0;
+                break;
+            case GameState.GAME_PLAYING:
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
+                Time.timeScale = 1;
+                myUI.enabled = false;
+                break;
+            default:
+                break;
         }
     }
 
@@ -101,4 +134,11 @@ public class MenuUIInteraction : MonoBehaviour
     {
         Debug.Log(message);
     }
+
+    public void OnClickResume()
+    {
+        SwitchGameState(GameState.GAME_PLAYING);
+    }
 }
+
+public enum GameState { GAME_START = 0, GAME_PAUSED = 1, GAME_PLAYING = 2, NONE = 3 }
