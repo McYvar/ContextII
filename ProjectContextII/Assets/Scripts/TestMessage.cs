@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class TestMessage : MonoBehaviour
 {
-    [SerializeField] string testMessage;
-
-    public void LogTestMessage()
+    public void LogTestMessage(string testMessage)
     {
         Debug.Log(testMessage);
     }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, ITrigger
 {
     [SerializeField] float walkingForce;
     [SerializeField] float counterForce;
@@ -20,9 +20,12 @@ public class PlayerController : MonoBehaviour
     float horizontalInput;
     float verticalInput;
 
+    public TriggerType triggerType { get; set; }
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        triggerType = TriggerType.PLAYER;
     }
 
     private void Update()

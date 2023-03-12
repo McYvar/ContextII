@@ -21,6 +21,9 @@ public class AudioInsert : MonoBehaviour
     [SerializeField] bool doRemove = true;
     BoxCollider myCollider;
 
+    [Space(10), Header("What should be able to trigger this audio?")]
+    [SerializeField] TriggerType responseType;
+
     SubtitleSystem subtitleSystem;
 
     private void Awake()
@@ -33,8 +36,9 @@ public class AudioInsert : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other == null) return;
-        PlayerController player = other.GetComponent<PlayerController>();
-        if (player == null) return;
+        ITrigger collider = other.GetComponent<ITrigger>();
+        if (collider == null) return;
+        if (collider.triggerType != responseType && responseType != TriggerType.ALL) return;
 
         if (doInterupt)
         {

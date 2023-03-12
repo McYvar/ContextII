@@ -10,6 +10,9 @@ public class TimedEvent : MonoBehaviour
     [SerializeField] bool repeatable;
     [SerializeField] TimedEventStruct[] timedEvents;
 
+    [Space(10), Header("What should be able to trigger this event?")]
+    [SerializeField] TriggerType responseType;
+
     bool running;
     float timer;
     BoxCollider myCollider;
@@ -36,11 +39,13 @@ public class TimedEvent : MonoBehaviour
             myCollider.enabled = false;
         }
 
+        if (other == null) return;
+        ITrigger collider = other.GetComponent<ITrigger>();
+        if (collider == null) return;
+        if (collider.triggerType != responseType && responseType != TriggerType.ALL) return;
+
         currentEventIterator = 0;
         timer = 0;
-        if (other == null) return;
-        PlayerController player = other.GetComponent<PlayerController>();
-        if (player == null) return;
 
         if (timedEvents.Length == 0) return;
         StartCoroutine(nextEvent(timedEvents[0]));
