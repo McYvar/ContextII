@@ -14,8 +14,9 @@ public class DisplayInteraction : MonoBehaviour
 
     public bool displayHints = true; // later in a main file a static bool
     [SerializeField] KeyCode interactionKey = KeyCode.E;
-    [SerializeField] GameObject interactionDisplay;
-    [SerializeField] TMP_Text interactionDisplayText;
+    TMP_Text interactionDisplayText;
+    MainCanvasUtils mc;
+    GameObject interactionDisplay;
     [SerializeField] float maxInteractionDisplayAngle = 50;
     [SerializeField] float maxInteractionAngle = 15;
     [SerializeField, Range(0f, 0.8f)] float interactionDisplayOffset = 0.125f;
@@ -40,12 +41,15 @@ public class DisplayInteraction : MonoBehaviour
     {
         myCollider = GetComponent<SphereCollider>();
         myCollider.isTrigger = true;
+        if (mc == null) mc = FindObjectOfType<MainCanvasUtils>();
+        interactionDisplay = Instantiate(mc.interactionDisplay, mc.gameObject.transform);
+        interactionDisplayText = interactionDisplay.GetComponentInChildren<TMP_Text>();
     }
 
     private void Start()
     {
         myScreenPositon = new Vector2(Screen.width * 2, Screen.height * 2);
-        interactionDisplay.transform.position = myScreenPositon;
+        interactionDisplay.transform.position = myScreenPositon; // moet prefab worden
         interactionDisplay.SetActive(true);
     }
 

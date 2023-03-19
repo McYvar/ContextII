@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-[RequireComponent(typeof(BoxCollider)), RequireComponent(typeof(SubtitleSystem))]
+[RequireComponent(typeof(BoxCollider)), RequireComponent(typeof(SubtitleSystem)), RequireComponent(typeof(MeshRenderer))]
 public class AudioInsert : MonoBehaviour
 {
     [Header("Always add the audioMaster script here")]
@@ -26,11 +26,13 @@ public class AudioInsert : MonoBehaviour
 
     SubtitleSystem subtitleSystem;
 
+
     private void Awake()
     {
         myCollider = GetComponent<BoxCollider>();
         myCollider.isTrigger = true;
         subtitleSystem = GetComponent<SubtitleSystem>();
+        GetComponent<MeshRenderer>().enabled = false;
     }
 
     private void OnTriggerEnter(Collider other)

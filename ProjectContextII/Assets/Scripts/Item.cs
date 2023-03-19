@@ -14,6 +14,7 @@ public class Item : MonoBehaviour, IThrowable, IPickUpable, ITrigger
 
     [SerializeField] float throwStrenght;
     [SerializeField] float maxRaycastDist;
+    Collider myCollider;
 
     public TriggerType triggerType { get; set; }
     Rigidbody rb;
@@ -26,6 +27,7 @@ public class Item : MonoBehaviour, IThrowable, IPickUpable, ITrigger
         normalLayer = gameObject.layer;
         triggerType = TriggerType.THROWABLE_OBJECT;
         rb = GetComponent<Rigidbody>();
+        myCollider = GetComponent<Collider>();
     }
 
     private void Update()
@@ -40,6 +42,7 @@ public class Item : MonoBehaviour, IThrowable, IPickUpable, ITrigger
     public void PickMeUp()
     {
         rb.constraints = RigidbodyConstraints.FreezeAll;
+        myCollider.enabled = false;
 
         currentState = CurrentItemState.PICKED_UP;
         transform.position = uiLocation;
@@ -51,6 +54,7 @@ public class Item : MonoBehaviour, IThrowable, IPickUpable, ITrigger
     public void ThrowMe(Vector3 startThrowLocation, Vector3 throwDirection)
     {
         rb.constraints = RigidbodyConstraints.None;
+        myCollider.enabled = true;
 
         currentState = CurrentItemState.IN_THE_AIR;
         transform.position = startThrowLocation + throwDirection.normalized * throwDistanceOffset;

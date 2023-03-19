@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-[RequireComponent(typeof(BoxCollider))]
+[RequireComponent(typeof(BoxCollider)), RequireComponent(typeof(MeshRenderer))]
 public class TimedEvent : MonoBehaviour
 {
     [Space(10), Header("Do events after a certain amount of time")]
@@ -22,6 +22,7 @@ public class TimedEvent : MonoBehaviour
     {
         myCollider = GetComponent<BoxCollider>();
         myCollider.isTrigger = true;
+        GetComponent<MeshRenderer>().enabled = false;
     }
 
     private void Update()
