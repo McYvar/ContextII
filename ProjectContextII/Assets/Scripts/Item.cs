@@ -48,7 +48,8 @@ public class Item : MonoBehaviour, IThrowable, IPickUpable, ITrigger
         transform.position = uiLocation;
         transform.rotation = uiRotation;
         transform.localScale = uiScale;
-        gameObject.layer = LayerMask.NameToLayer("OverlayUI");
+        //gameObject.layer = LayerMask.NameToLayer("OverlayUI");
+        SetGameLayerRecursive(gameObject, LayerMask.NameToLayer("OverlayUI"));
     }
 
     public void ThrowMe(Vector3 startThrowLocation, Vector3 throwDirection)
@@ -59,10 +60,25 @@ public class Item : MonoBehaviour, IThrowable, IPickUpable, ITrigger
         currentState = CurrentItemState.IN_THE_AIR;
         transform.position = startThrowLocation + throwDirection.normalized * throwDistanceOffset;
         transform.rotation = Quaternion.identity;
-        transform.localScale = normalScale;
+        //transform.localScale = normalScale;
+        SetGameLayerRecursive(gameObject, normalLayer);
         gameObject.layer = normalLayer.value;
 
         rb.AddForce(throwDirection.normalized * throwStrenght, ForceMode.VelocityChange);
+    }
+
+    private void SetGameLayerRecursive(GameObject _go, int _layer)
+    {
+        _go.layer = _layer;
+        foreach (Transform child in _go.transform)
+        {
+            child.gameObject.layer = _layer;
+
+            Transform _HasChildren = child.GetComponentInChildren<Transform>();
+            if (_HasChildren != null)
+                SetGameLayerRecursive(child.gameObject, _layer);
+
+        }
     }
 }
 public enum CurrentItemState { ON_THE_GROUND = 0, PICKED_UP = 1, IN_THE_AIR = 2 }
