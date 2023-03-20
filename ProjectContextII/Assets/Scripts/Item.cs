@@ -24,6 +24,8 @@ public class Item : MonoBehaviour, IThrowable, IPickUpable, ITrigger
 
     private void Awake()
     {
+        TurnOnConvexRecursive(gameObject);
+
         normalScale = transform.localScale;
         normalLayer = gameObject.layer;
         triggerType = TriggerType.THROWABLE_OBJECT;
@@ -84,6 +86,21 @@ public class Item : MonoBehaviour, IThrowable, IPickUpable, ITrigger
             Transform _HasChildren = child.GetComponentInChildren<Transform>();
             if (_HasChildren != null)
                 SetGameLayerRecursive(child.gameObject, _layer);
+
+        }
+    }
+    private void TurnOnConvexRecursive(GameObject _go)
+    {
+        MeshCollider myMeshCollider = _go.GetComponent<MeshCollider>();
+        if (myMeshCollider != null) myMeshCollider.convex = true;
+        foreach (Transform child in _go.transform)
+        {
+            MeshCollider childMesh = child.GetComponent<MeshCollider>();
+            if (childMesh != null) childMesh.convex = true;
+
+            Transform _HasChildren = child.GetComponentInChildren<Transform>();
+            if (_HasChildren != null)
+                TurnOnConvexRecursive(child.gameObject);
 
         }
     }
