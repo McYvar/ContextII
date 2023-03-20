@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1768138380851241626}
   - component: {fileID: 1222240551510973287}
   - component: {fileID: 3648906999745286055}
+  - component: {fileID: 896411284948946704}
   m_Layer: 0
   m_Name: PlanterL
   m_TagString: Untagged
@@ -61,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5561349426305759274, guid: 59f1b1c63e66eeb40a2441b1161f249d, type: 3}
+  - {fileID: 2100000, guid: 9ff93e2edde04f443a165487f28e790d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &896411284948946704
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1509286733071482725}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2656476866206304866, guid: 59f1b1c63e66eeb40a2441b1161f249d, type: 3}

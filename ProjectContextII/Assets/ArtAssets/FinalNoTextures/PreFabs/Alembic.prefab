@@ -47,6 +47,7 @@ GameObject:
   - component: {fileID: 6518954210243033688}
   - component: {fileID: 2649713349312354452}
   - component: {fileID: 1255513127663589083}
+  - component: {fileID: 3750420926934133952}
   m_Layer: 0
   m_Name: AlembicBottle1
   m_TagString: Untagged
@@ -97,7 +98,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5561349426305759274, guid: dc644cf06c7c8514eafdfad9168f7274, type: 3}
+  - {fileID: 2100000, guid: 663cd720f244c8b4cb276e7aea728a6a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -119,6 +120,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &3750420926934133952
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 763061511001065156}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 820037202036837075, guid: dc644cf06c7c8514eafdfad9168f7274, type: 3}
 --- !u!1 &4272897799957297418
 GameObject:
   m_ObjectHideFlags: 0
@@ -130,6 +145,7 @@ GameObject:
   - component: {fileID: 6909287354257387122}
   - component: {fileID: 6290489451857958857}
   - component: {fileID: 5475627525767667877}
+  - component: {fileID: 5578652696181097724}
   m_Layer: 0
   m_Name: BottleStand2
   m_TagString: Untagged
@@ -180,7 +196,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5561349426305759274, guid: dc644cf06c7c8514eafdfad9168f7274, type: 3}
+  - {fileID: 2100000, guid: ae747545f62451d49ab8ebc3ead212b1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -202,6 +218,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &5578652696181097724
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4272897799957297418}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -6595052289885719649, guid: dc644cf06c7c8514eafdfad9168f7274, type: 3}
 --- !u!1 &4641127892918959569
 GameObject:
   m_ObjectHideFlags: 0
@@ -213,6 +243,7 @@ GameObject:
   - component: {fileID: 9182166398624696498}
   - component: {fileID: 6796371201780300867}
   - component: {fileID: 8934679116427111843}
+  - component: {fileID: 8172369228134127535}
   m_Layer: 0
   m_Name: AlembicBottle2
   m_TagString: Untagged
@@ -263,7 +294,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5561349426305759274, guid: dc644cf06c7c8514eafdfad9168f7274, type: 3}
+  - {fileID: 2100000, guid: 663cd720f244c8b4cb276e7aea728a6a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -285,6 +316,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &8172369228134127535
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4641127892918959569}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -3727443376746523229, guid: dc644cf06c7c8514eafdfad9168f7274, type: 3}
 --- !u!1 &5681518018217977112
 GameObject:
   m_ObjectHideFlags: 0
@@ -296,6 +341,7 @@ GameObject:
   - component: {fileID: 8212519246184853004}
   - component: {fileID: 8997847974258251724}
   - component: {fileID: 6679939980313729124}
+  - component: {fileID: 5026665668038399518}
   m_Layer: 0
   m_Name: BottleStand1
   m_TagString: Untagged
@@ -346,7 +392,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5561349426305759274, guid: dc644cf06c7c8514eafdfad9168f7274, type: 3}
+  - {fileID: 2100000, guid: ae747545f62451d49ab8ebc3ead212b1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -368,6 +414,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &5026665668038399518
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5681518018217977112}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 7533751257772601966, guid: dc644cf06c7c8514eafdfad9168f7274, type: 3}
 --- !u!1 &8630769986347036388
 GameObject:
   m_ObjectHideFlags: 0
@@ -379,6 +439,7 @@ GameObject:
   - component: {fileID: 1934848636976535757}
   - component: {fileID: 2375885549533349315}
   - component: {fileID: 7249837977486624950}
+  - component: {fileID: 3377112649605135788}
   m_Layer: 0
   m_Name: FireThing
   m_TagString: Untagged
@@ -394,7 +455,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8630769986347036388}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: -0.008063596}
+  m_LocalPosition: {x: -0, y: 0.00088, z: -0.008063596}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -429,7 +490,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5561349426305759274, guid: dc644cf06c7c8514eafdfad9168f7274, type: 3}
+  - {fileID: 2100000, guid: 4d98daa840895dd43a680b7bfd224ed1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -451,3 +512,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &3377112649605135788
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8630769986347036388}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -8686177361132298524, guid: dc644cf06c7c8514eafdfad9168f7274, type: 3}

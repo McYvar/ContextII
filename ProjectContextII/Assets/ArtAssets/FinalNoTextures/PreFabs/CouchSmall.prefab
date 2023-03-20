@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7105955108939304698}
   - component: {fileID: 6601630384565757713}
   - component: {fileID: 6970748801365911790}
+  - component: {fileID: 1271141502141682485}
   m_Layer: 0
   m_Name: CouchSmall
   m_TagString: Untagged
@@ -61,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5561349426305759274, guid: dd932b012156445458d05903eacfd5df, type: 3}
+  - {fileID: 2100000, guid: 578e32018516cc94b9db6f560218e0e5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &1271141502141682485
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4411076546923606335}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8734172788138114316, guid: dd932b012156445458d05903eacfd5df, type: 3}

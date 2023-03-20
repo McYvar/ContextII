@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2991369121078765369}
   - component: {fileID: 1567861741818922125}
   - component: {fileID: 2049258824806804517}
+  - component: {fileID: -2539751870412113018}
   m_Layer: 0
   m_Name: Pot2
   m_TagString: Untagged
@@ -61,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5561349426305759274, guid: c027cb7f1862a414190cda1718b82d33, type: 3}
+  - {fileID: 2100000, guid: 46ddb12fc5c46ea43a35bea5e8176b2f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &-2539751870412113018
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4057204162699549327}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8437439518100956222, guid: c027cb7f1862a414190cda1718b82d33, type: 3}

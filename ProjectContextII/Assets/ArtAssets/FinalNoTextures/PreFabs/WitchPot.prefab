@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4071534992236214276}
   - component: {fileID: 4324913818869759784}
   - component: {fileID: 207105287451039403}
+  - component: {fileID: 9106771744300864973}
   m_Layer: 0
   m_Name: WitchPot
   m_TagString: Untagged
@@ -61,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5561349426305759274, guid: 34bcc6f85e6a10e43bfd0226def2fdf0, type: 3}
+  - {fileID: 2100000, guid: 4bcc696fd3fce17429051b4a5686cfc0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -83,6 +84,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &9106771744300864973
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4657731523628072910}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4444635830299987027, guid: 34bcc6f85e6a10e43bfd0226def2fdf0, type: 3}
 --- !u!1 &7486574843304008717
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,6 +109,7 @@ GameObject:
   - component: {fileID: 4286066202663534391}
   - component: {fileID: 2711535666672457842}
   - component: {fileID: 653326034707262321}
+  - component: {fileID: 2903963961336152621}
   m_Layer: 0
   m_Name: pCylinder2
   m_TagString: Untagged
@@ -144,7 +160,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5561349426305759274, guid: 34bcc6f85e6a10e43bfd0226def2fdf0, type: 3}
+  - {fileID: 2100000, guid: 9f1554631a3899643af4cb34a0ab4f87, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -166,6 +182,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &2903963961336152621
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7486574843304008717}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6099800089077584851, guid: 34bcc6f85e6a10e43bfd0226def2fdf0, type: 3}
 --- !u!1 &9207727157571353564
 GameObject:
   m_ObjectHideFlags: 0

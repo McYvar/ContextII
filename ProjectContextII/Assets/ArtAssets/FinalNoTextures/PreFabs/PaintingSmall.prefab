@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5133050910668711747}
   - component: {fileID: 7110642886760785053}
   - component: {fileID: 2104707941702264145}
+  - component: {fileID: -1977889182643753753}
   m_Layer: 0
   m_Name: PaintingSmall
   m_TagString: Untagged
@@ -61,8 +62,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5561349426305759274, guid: 45fe29b1d3071ac4b8fc4940788b1652, type: 3}
-  - {fileID: 8748892135801146194, guid: 45fe29b1d3071ac4b8fc4940788b1652, type: 3}
+  - {fileID: 2100000, guid: a776cb6061d36f945acfa1f99c480308, type: 2}
+  - {fileID: 2100000, guid: 01383dbe4911a1549aeac4742ea0a290, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -84,3 +85,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &-1977889182643753753
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2816189622590006898}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -391143232791833591, guid: 45fe29b1d3071ac4b8fc4940788b1652, type: 3}

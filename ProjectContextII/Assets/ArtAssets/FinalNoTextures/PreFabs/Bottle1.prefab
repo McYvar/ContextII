@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7692456354284591133}
   - component: {fileID: 1483700444546350971}
   - component: {fileID: 7650610439651909329}
+  - component: {fileID: -3690063156528723099}
   m_Layer: 0
   m_Name: Bottle1
   m_TagString: Untagged
@@ -61,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5561349426305759274, guid: 889b52dadf5b3f94d9bc580d61d59a4a, type: 3}
+  - {fileID: 2100000, guid: 663cd720f244c8b4cb276e7aea728a6a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &-3690063156528723099
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 356751399418399851}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5141700695902245142, guid: 889b52dadf5b3f94d9bc580d61d59a4a, type: 3}

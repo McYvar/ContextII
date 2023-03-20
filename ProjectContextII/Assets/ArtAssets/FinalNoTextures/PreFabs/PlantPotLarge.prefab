@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 146843135940912059}
   - component: {fileID: 9163298245138201619}
   - component: {fileID: 7286164772015336810}
+  - component: {fileID: 5510323028836537414}
   m_Layer: 0
   m_Name: PlantPotLarge
   m_TagString: Untagged
@@ -61,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5561349426305759274, guid: c3f860bf2e713fe4b9ba03d519851884, type: 3}
+  - {fileID: 2100000, guid: 31212f45c2e41194d8654f5c1c2aa809, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &5510323028836537414
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 395056739196525913}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 9202198319947532008, guid: c3f860bf2e713fe4b9ba03d519851884, type: 3}

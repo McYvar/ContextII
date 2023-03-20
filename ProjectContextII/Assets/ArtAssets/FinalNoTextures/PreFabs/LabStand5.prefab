@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1609199596819866785}
   - component: {fileID: 2474355607290278991}
   - component: {fileID: 4301685923013425652}
+  - component: {fileID: -7804810528711148433}
   m_Layer: 0
   m_Name: LabStand5
   m_TagString: Untagged
@@ -61,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5561349426305759274, guid: cc53ab1b49bf6d44bb3bb30eebfe856e, type: 3}
+  - {fileID: 2100000, guid: ae747545f62451d49ab8ebc3ead212b1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &-7804810528711148433
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4905578318496349950}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2339767414312879175, guid: cc53ab1b49bf6d44bb3bb30eebfe856e, type: 3}

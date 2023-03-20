@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4381990745565319579}
   - component: {fileID: 3023838580394633843}
   - component: {fileID: 8576539452879182207}
+  - component: {fileID: 7707178301544051393}
   m_Layer: 0
   m_Name: CoffeeTableSmall
   m_TagString: Untagged
@@ -61,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5561349426305759274, guid: e46d21cadd9234b46a270a18c7586e77, type: 3}
+  - {fileID: 2100000, guid: 11db49b4be4d65d47b4fe00e279d94b9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &7707178301544051393
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8498699241186416488}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2925014010706319053, guid: e46d21cadd9234b46a270a18c7586e77, type: 3}

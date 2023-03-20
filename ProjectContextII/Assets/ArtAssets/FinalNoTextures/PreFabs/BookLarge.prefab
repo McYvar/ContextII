@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1443736303489636751}
   - component: {fileID: 2460489492185111953}
   - component: {fileID: 3974639105214359318}
+  - component: {fileID: 2242387990472107716}
   m_Layer: 0
   m_Name: BookLarge
   m_TagString: Untagged
@@ -61,8 +62,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 8748892135801146194, guid: affea9b82171fe642995837186c1581f, type: 3}
-  - {fileID: 5561349426305759274, guid: affea9b82171fe642995837186c1581f, type: 3}
+  - {fileID: 2100000, guid: 9c77af753f8cd404db80ca56cd301bcd, type: 2}
+  - {fileID: 2100000, guid: 3881dcf8721181344873d812e938d860, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -84,3 +85,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &2242387990472107716
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2619543811617634005}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -6687131278037093611, guid: affea9b82171fe642995837186c1581f, type: 3}

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6514440204951225951}
   - component: {fileID: 564311145123033671}
   - component: {fileID: 5677115346363619677}
+  - component: {fileID: 4247880675248007063}
   m_Layer: 0
   m_Name: InkPen
   m_TagString: Untagged
@@ -61,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5561349426305759274, guid: 4df24354585d8cd4fbe70f31d8264238, type: 3}
+  - {fileID: 2100000, guid: 9f9d0236c169d204fab1efadf8c36cb9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -83,6 +84,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &4247880675248007063
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 855517604751860964}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6038669373250209185, guid: 4df24354585d8cd4fbe70f31d8264238, type: 3}
 --- !u!1 &3873049077098723377
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,6 +109,7 @@ GameObject:
   - component: {fileID: 4786574572839919765}
   - component: {fileID: 1546111148804877094}
   - component: {fileID: 8196840404884547664}
+  - component: {fileID: 738385002034610349}
   m_Layer: 0
   m_Name: InkPot
   m_TagString: Untagged
@@ -145,7 +161,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5561349426305759274, guid: 4df24354585d8cd4fbe70f31d8264238, type: 3}
+  - {fileID: 2100000, guid: 761828a406e16454a9a90401fe1ff9b4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -167,3 +183,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &738385002034610349
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3873049077098723377}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3366161399349330341, guid: 4df24354585d8cd4fbe70f31d8264238, type: 3}
