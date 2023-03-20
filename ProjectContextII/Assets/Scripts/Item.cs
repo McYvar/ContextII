@@ -18,6 +18,7 @@ public class Item : MonoBehaviour, IThrowable, IPickUpable, ITrigger
 
     public TriggerType triggerType { get; set; }
     Rigidbody rb;
+    [HideInInspector] public bool hasInteraction;
 
     [HideInInspector] public CurrentItemState currentState = CurrentItemState.ON_THE_GROUND;
 
@@ -28,6 +29,12 @@ public class Item : MonoBehaviour, IThrowable, IPickUpable, ITrigger
         triggerType = TriggerType.THROWABLE_OBJECT;
         rb = GetComponent<Rigidbody>();
         myCollider = GetComponent<Collider>();
+
+        if (GetComponent<DisplayInteraction>() != null)
+        {
+            hasInteraction = true;
+        }
+        else hasInteraction = false;
     }
 
     private void Update()

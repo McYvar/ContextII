@@ -20,10 +20,15 @@ public class ItemHolder : MonoBehaviour
     private void OnCollisionStay(Collision collision)
     {
         Item item = collision.collider.GetComponent<Item>();
-        if (item != null && this.item == null) this.item = item;
+        if (item != null && this.item == null && !item.hasInteraction) this.item = item;
         else return;
         if (item.currentState == CurrentItemState.IN_THE_AIR ||
             item.currentState == CurrentItemState.PICKED_UP) return;
         item.PickMeUp();
+    }
+
+    public void SetItemManually(Item newItem)
+    {
+        item = newItem;
     }
 }

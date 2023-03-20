@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.UI;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(SphereCollider))]
 public class DisplayInteraction : MonoBehaviour
@@ -36,6 +36,7 @@ public class DisplayInteraction : MonoBehaviour
 
     [SerializeField] AudioMaster audioMaster;
     [SerializeField] AudioClip interactionAudio;
+    [SerializeField] UnityEvent onInteractionEvent;
 
     private void Awake()
     {
@@ -112,5 +113,6 @@ public class DisplayInteraction : MonoBehaviour
     {
         Debug.Log("Interacted!");
         if (interactionAudio != null) audioMaster?.PlayAudioOneshot(interactionAudio);
+        onInteractionEvent.Invoke();
     }
 }
