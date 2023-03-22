@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class SubtitleSystem : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class SubtitleSystem : MonoBehaviour
 
     [SerializeField] SubtitleInput[] subtitles;
 
+    [SerializeField] UnityEvent finalEvent;
+
     float subtitleTimer;
     int subtitleIterator = 0;
     bool goNext = false;
@@ -22,13 +25,19 @@ public class SubtitleSystem : MonoBehaviour
     bool doLast = false;
     float lastDisplayTime = 2;
 
+    bool isPlaying = false;
+
 
     private void Update()
     {
         if (enableSubtitles) mc.subtitleText.enabled = true;
         else mc.subtitleText.enabled = false;
 
-        subtitleTimer = audioMaster.GetAudioPlayingTime();
+        if (audioMaster.GetAudioPlayingTime() != -1) subtitleTimer = audioMaster.GetAudioPlayingTime();
+        else if (isPlaying)
+        {
+            subtitleTimer += Time.deltaTime;
+        }
     }
 
     public void StartSubtitles()
@@ -36,8 +45,10 @@ public class SubtitleSystem : MonoBehaviour
         if (subtitles.Length == 0) return;
         audioMaster.SetNewSubtitles(this);
         subtitleIterator = 0;
+        subtitleTimer = 0;
         goNext = false;
         doLast = false;
+        isPlaying = true;
         StartCoroutine(CurrentSentence(subtitles[0]));
     }
 
@@ -150,6 +161,10 @@ public class SubtitleSystem : MonoBehaviour
     {
         yield return new WaitForSeconds(lastDisplayTime);
         mc.TurnOffAllSubtitleElements();
+        isPlaying = false;
+        
+        finalEvent.Invoke();
+
     }
 }
 

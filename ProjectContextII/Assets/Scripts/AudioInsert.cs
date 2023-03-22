@@ -47,8 +47,16 @@ public class AudioInsert : MonoBehaviour
             audioMaster.StopPlayingCurrentClip();
         }
 
-        if (events.GetPersistentEventCount() > 0) audioMaster.PlayAudioClip(audioClip, events, audioStartTime);
-        else audioMaster.PlayAudioClip(audioClip, audioStartTime);
+        if (events.GetPersistentEventCount() > 0)
+        {
+            if (audioClip != null)
+                audioMaster.PlayAudioClip(audioClip, events, audioStartTime);
+        }
+        else
+        {
+            if (audioClip != null)
+                audioMaster.PlayAudioClip(audioClip, audioStartTime);
+        }
 
         if (doRemove)
         {
