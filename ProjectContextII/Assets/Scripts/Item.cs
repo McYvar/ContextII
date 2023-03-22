@@ -21,6 +21,7 @@ public class Item : MonoBehaviour, IThrowable, IPickUpable, ITrigger
     [HideInInspector] public bool hasInteraction;
 
     [HideInInspector] public CurrentItemState currentState = CurrentItemState.ON_THE_GROUND;
+    DisplayInteraction myInteraction;
 
     private void Awake()
     {
@@ -32,7 +33,8 @@ public class Item : MonoBehaviour, IThrowable, IPickUpable, ITrigger
         rb = GetComponent<Rigidbody>();
         myCollider = GetComponent<Collider>();
 
-        if (GetComponent<DisplayInteraction>() != null)
+        myInteraction = GetComponent<DisplayInteraction>();
+        if (myInteraction != null)
         {
             hasInteraction = true;
         }

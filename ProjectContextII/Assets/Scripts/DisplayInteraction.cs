@@ -38,6 +38,9 @@ public class DisplayInteraction : MonoBehaviour
     [SerializeField] AudioClip interactionAudio;
     [SerializeField] UnityEvent onInteractionEvent;
 
+    Item myItem;
+    ItemHolder myItemHolder;
+
     private void Awake()
     {
         myCollider = GetComponent<SphereCollider>();
@@ -45,12 +48,14 @@ public class DisplayInteraction : MonoBehaviour
         if (mc == null) mc = FindObjectOfType<MainCanvasUtils>();
         interactionDisplay = Instantiate(mc.interactionDisplay, mc.gameObject.transform);
         interactionDisplayText = interactionDisplay.GetComponentInChildren<TMP_Text>();
+        myItem = GetComponent<Item>();
+        myItemHolder = FindObjectOfType<ItemHolder>();
     }
 
     private void Start()
     {
         myScreenPositon = new Vector2(Screen.width * 2, Screen.height * 2);
-        interactionDisplay.transform.position = myScreenPositon; // moet prefab worden
+        interactionDisplay.transform.position = myScreenPositon;
         interactionDisplay.SetActive(true);
     }
 
@@ -78,6 +83,7 @@ public class DisplayInteraction : MonoBehaviour
         myScreenPositon = player.playerCameraTransform.WorldToScreenPoint(transform.position);
         Vector2 centreOfScreen = new Vector3(Screen.width / 2, Screen.height / 2);
         normalizedTargetVector = (centreOfScreen - myScreenPositon).normalized;
+        if (myItem != null && myItemHolder.item != null) { DisableInteraction(); return; }
         EnableInteraction();
 
         if (Input.GetKey(interactionKey) && currentAngle < maxInteractionAngle)
