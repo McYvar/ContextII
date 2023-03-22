@@ -25,7 +25,7 @@ public class AudioInsert : MonoBehaviour
     [SerializeField] TriggerType responseType;
 
     SubtitleSystem subtitleSystem;
-
+    //haha
 
     private void Awake()
     {
