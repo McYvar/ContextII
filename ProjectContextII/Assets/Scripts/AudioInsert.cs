@@ -45,6 +45,10 @@ public class AudioInsert : MonoBehaviour
         {
             audioMaster.StopPlayingCurrentClip();
         }
+        else
+        {
+            if (audioMaster.IsPlayingSubtitles()) return;
+        }
 
         if (events.GetPersistentEventCount() > 0)
         {
