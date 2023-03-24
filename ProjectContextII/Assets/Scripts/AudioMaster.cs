@@ -81,6 +81,7 @@ public class AudioMaster : MonoBehaviour
 
     public float GetAudioPlayingTime()
     {
+        if (playerAudioSource.clip == null) return -1;
         return playerAudioSource.time;
     }
 

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.UI;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(SphereCollider))]
 public class DisplayInteraction : MonoBehaviour
@@ -14,8 +14,9 @@ public class DisplayInteraction : MonoBehaviour
 
     public bool displayHints = true; // later in a main file a static bool
     [SerializeField] KeyCode interactionKey = KeyCode.E;
-    [SerializeField] GameObject interactionDisplay;
-    [SerializeField] TMP_Text interactionDisplayText;
+    TMP_Text interactionDisplayText;
+    MainCanvasUtils mc;
+    GameObject interactionDisplay;
     [SerializeField] float maxInteractionDisplayAngle = 50;
     [SerializeField] float maxInteractionAngle = 15;
     [SerializeField, Range(0f, 0.8f)] float interactionDisplayOffset = 0.125f;
@@ -35,11 +36,20 @@ public class DisplayInteraction : MonoBehaviour
 
     [SerializeField] AudioMaster audioMaster;
     [SerializeField] AudioClip interactionAudio;
+    [SerializeField] UnityEvent onInteractionEvent;
+
+    Item myItem;
+    ItemHolder myItemHolder;
 
     private void Awake()
     {
         myCollider = GetComponent<SphereCollider>();
         myCollider.isTrigger = true;
+        if (mc == null) mc = FindObjectOfType<MainCanvasUtils>();
+        interactionDisplay = Instantiate(mc.interactionDisplay, mc.gameObject.transform);
+        interactionDisplayText = interactionDisplay.GetComponentInChildren<TMP_Text>();
+        myItem = GetComponent<Item>();
+        myItemHolder = FindObjectOfType<ItemHolder>();
     }
 
     private void Start()
@@ -73,6 +83,7 @@ public class DisplayInteraction : MonoBehaviour
         myScreenPositon = player.playerCameraTransform.WorldToScreenPoint(transform.position);
         Vector2 centreOfScreen = new Vector3(Screen.width / 2, Screen.height / 2);
         normalizedTargetVector = (centreOfScreen - myScreenPositon).normalized;
+        if (myItem != null && myItemHolder.item != null) { DisableInteraction(); return; }
         EnableInteraction();
 
         if (Input.GetKey(interactionKey) && currentAngle < maxInteractionAngle)
@@ -108,5 +119,6 @@ public class DisplayInteraction : MonoBehaviour
     {
         Debug.Log("Interacted!");
         if (interactionAudio != null) audioMaster?.PlayAudioOneshot(interactionAudio);
+        onInteractionEvent.Invoke();
     }
 }
