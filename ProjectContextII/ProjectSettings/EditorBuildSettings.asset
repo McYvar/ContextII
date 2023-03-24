@@ -18,11 +18,11 @@ EditorBuildSettings:
     path: Assets/Scenes/ArtSceneKnight.unity
     guid: 416550208e5bf31479d26fa0fb50e7d8
   - enabled: 1
+    path: Assets/Scenes/ArtScenePirate.unity
+    guid: 76765168c46052f499712a9725885a32
+  - enabled: 1
     path: Assets/Scenes/ArtSceneWitch.unity
     guid: 979221ede3b89824f9363b6818160c8f
-  - enabled: 1
-    path: Assets/Scenes/ArtSceneWitchBork.unity
-    guid: 351ca901707cb8d4fa24741625974bd7
   - enabled: 1
     path: Assets/Scenes/FinalMenuSene.unity
     guid: 9cf2f0f1d089dbe4f91e2112583860f2
