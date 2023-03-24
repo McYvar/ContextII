@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(SphereCollider))]
 public class DisplayInteraction : MonoBehaviour
@@ -50,6 +51,7 @@ public class DisplayInteraction : MonoBehaviour
         interactionDisplayText = interactionDisplay.GetComponentInChildren<TMP_Text>();
         myItem = GetComponent<Item>();
         myItemHolder = FindObjectOfType<ItemHolder>();
+        DisableInteraction();
     }
 
     private void Start()
@@ -102,6 +104,7 @@ public class DisplayInteraction : MonoBehaviour
 
     private void DisableInteraction()
     {
+        interactionDisplay.GetComponent<RawImage>().enabled = false;
         isEnabled = false;
     }
 
@@ -109,6 +112,7 @@ public class DisplayInteraction : MonoBehaviour
     {
         if (!isEnabled)
         {
+            interactionDisplay.GetComponent<RawImage>().enabled = true;
             interactionDisplay.transform.position = myScreenPositon + normalizedTargetVector * (Screen.width * 1.5f);
             interactionDisplayText.text = interactionKey.ToString();
         }
