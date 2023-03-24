@@ -320,7 +320,7 @@ MonoBehaviour:
   maxWalkingSpeed: 2.6
   playerOrientation: {fileID: 7859606445969123109}
   playerCameraTransform: {fileID: 5663692541350522939}
-  cameraSensitivity: 5
+  cameraSensitivity: 2
 --- !u!114 &6304712833449351720
 MonoBehaviour:
   m_ObjectHideFlags: 0
