@@ -15,7 +15,7 @@ public class AudioMaster : MonoBehaviour
     [SerializeField] AudioSource playerAudioSource; // source in 3d space would be in the players their head
 
     [Space(10), Header("Add subtitles aswell if needed")]
-    [SerializeField] SubtitleSystem currentSubtitles;
+    [SerializeField] AudioSystem currentSubtitles;
 
     private void Awake()
     {
@@ -85,7 +85,7 @@ public class AudioMaster : MonoBehaviour
         return playerAudioSource.time;
     }
 
-    public void SetNewSubtitles(SubtitleSystem newSubtitles)
+    public void SetNewSubtitles(AudioSystem newSubtitles)
     {
         currentSubtitles?.StopActiveSubtitles();
         currentSubtitles = newSubtitles;
