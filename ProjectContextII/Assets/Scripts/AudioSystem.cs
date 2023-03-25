@@ -105,6 +105,8 @@ public class AudioSystem : MonoBehaviour
         if (subtitleIterator < subtitles.Length) StartCoroutine(NextSentence(subtitles[subtitleIterator]));
         else doLast = true;
 
+        currentSubtitle.startEvent.Invoke();
+
         if (currentSubtitle.audioClip != null)
         {
             audioMaster.StopPlayingCurrentClip();
@@ -214,6 +216,7 @@ public class AudioSystem : MonoBehaviour
 [System.Serializable]
 public struct SubtitleInput
 {
+    public UnityEvent startEvent;
     public AudioClip audioClip;
     public bool forceToThisOneOnFinish;
     [TextArea] public string subtitle;
