@@ -90,4 +90,9 @@ public class AudioMaster : MonoBehaviour
         currentSubtitles?.StopActiveSubtitles();
         currentSubtitles = newSubtitles;
     }
+
+    public bool IsPlayingSubtitles()
+    {
+        return currentSubtitles.isPlaying;
+    }
 }

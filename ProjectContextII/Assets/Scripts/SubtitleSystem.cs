@@ -23,9 +23,9 @@ public class SubtitleSystem : MonoBehaviour
     bool goNext = false;
     
     bool doLast = false;
-    float lastDisplayTime = 2;
+    float lastDisplayTime = 4;
 
-    bool isPlaying = false;
+    public bool isPlaying = false;
 
 
     private void Update()

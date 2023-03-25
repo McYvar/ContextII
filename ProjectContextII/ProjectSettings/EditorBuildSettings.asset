@@ -5,13 +5,25 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/StartMenuSene.unity
     guid: 7a937ad0939e3364ca71c544bdcaca00
   - enabled: 0
     path: Assets/Scenes/TrialArtScene.unity
     guid: 901ddf50930347745b70f3bf22ecfdaf
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/ArtScene + mechanics.unity
     guid: 9800b9d83314aff4582ccb5b67303eb7
+  - enabled: 1
+    path: Assets/Scenes/ArtSceneKnight.unity
+    guid: 416550208e5bf31479d26fa0fb50e7d8
+  - enabled: 1
+    path: Assets/Scenes/ArtScenePirate.unity
+    guid: 76765168c46052f499712a9725885a32
+  - enabled: 1
+    path: Assets/Scenes/ArtSceneWitch.unity
+    guid: 979221ede3b89824f9363b6818160c8f
+  - enabled: 1
+    path: Assets/Scenes/FinalMenuSene.unity
+    guid: 9cf2f0f1d089dbe4f91e2112583860f2
   m_configObjects: {}
