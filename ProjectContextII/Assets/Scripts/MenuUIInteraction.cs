@@ -130,6 +130,18 @@ public class MenuUIInteraction : MonoBehaviour
         SceneManager.LoadScene(scene);
     }
 
+    public void HideCursor()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
+    public void DisplayCursor()
+    {
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
+    }
+
     public void OnClickDebugTestMessage(string message)
     {
         Debug.Log(message);

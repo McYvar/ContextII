@@ -9,4 +9,16 @@ public class SceneChanger : MonoBehaviour
     {
         SceneManager.LoadScene(scnene);
     }
+
+    public void HideCursor()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
+    public void DisplayCursor()
+    {
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
+    }
 }
