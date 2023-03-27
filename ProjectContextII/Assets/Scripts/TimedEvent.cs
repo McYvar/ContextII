@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(BoxCollider)), RequireComponent(typeof(MeshRenderer))]
 public class TimedEvent : MonoBehaviour
@@ -17,6 +18,8 @@ public class TimedEvent : MonoBehaviour
     float timer;
     BoxCollider myCollider;
     int currentEventIterator = 0;
+
+    BookType booktype;
 
     private void Awake()
     {
@@ -45,6 +48,8 @@ public class TimedEvent : MonoBehaviour
         if (collider == null) return;
         if (collider.triggerType != responseType && responseType != TriggerType.ALL) return;
 
+        booktype = other.GetComponent<BookType>();
+
         currentEventIterator = 0;
         timer = 0;
 
@@ -53,7 +58,6 @@ public class TimedEvent : MonoBehaviour
 
         running = true;
     }
-
     IEnumerator nextEvent(TimedEventStruct currentEvent)
     {
         yield return new WaitUntil(() => timer >= currentEvent.timedEventTime);
@@ -63,10 +67,26 @@ public class TimedEvent : MonoBehaviour
         if (currentEventIterator < timedEvents.Length) StartCoroutine(nextEvent(timedEvents[currentEventIterator]));
         else running = false;
     }
+
+    public void CheckBookInFireplace()
+    {
+        if (booktype == null) return;
+
+        if (booktype.characterPlanType == CharacterPlanType.PIRATE_PLAN)
+        {
+            // goto pirate scene
+            SceneManager.LoadScene(2);
+        }
+        if (booktype.characterPlanType == CharacterPlanType.WITCH_PLAN)
+        {
+            // goto witch scene
+            SceneManager.LoadScene(3);
+        }
+    }
 }
 
 
-    [System.Serializable]
+[System.Serializable]
 public struct TimedEventStruct
 {
     public float timedEventTime;
