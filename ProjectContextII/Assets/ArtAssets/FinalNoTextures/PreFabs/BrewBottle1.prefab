@@ -45,7 +45,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 735119412788736663}
-  m_Mesh: {fileID: -8809766287632686279, guid: 889b52dadf5b3f94d9bc580d61d59a4a, type: 3}
+  m_Mesh: {fileID: -8809766287632686279, guid: ff8b7395353c8e843bab07e8da990faf, type: 3}
 --- !u!23 &8257415700147874115
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -122,6 +122,7 @@ MonoBehaviour:
   throwDistanceOffset: 1
   throwStrenght: 10
   maxRaycastDist: 0.5
+  hasInteraction: 0
   currentState: 0
 --- !u!135 &-7880483270914810962
 SphereCollider:
@@ -158,6 +159,9 @@ MonoBehaviour:
   smoothTime: 0.078
   audioMaster: {fileID: 0}
   interactionAudio: {fileID: 0}
+  onInteractionEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!65 &-435022142077572456
 BoxCollider:
   m_ObjectHideFlags: 0
