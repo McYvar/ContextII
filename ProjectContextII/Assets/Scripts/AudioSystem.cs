@@ -23,6 +23,9 @@ public class AudioSystem : MonoBehaviour
     [Space(10), Header("What should be able to trigger this system?")]
     [SerializeField] TriggerType responseType;
 
+    PlayerController playerController;
+    [SerializeField] bool slowDownPlayer = true;
+
     public static bool enableSubtitles = true;
 
     [Space(10), SerializeField] SubtitleInput[] subtitles;
@@ -58,6 +61,8 @@ public class AudioSystem : MonoBehaviour
         if (collider == null) return;
         if (collider.triggerType != responseType && responseType != TriggerType.ALL) return;
 
+        playerController = other.GetComponent<PlayerController>();
+
         if (doInterupt)
         {
             audioMaster.StopPlayingCurrentClip();
@@ -81,11 +86,13 @@ public class AudioSystem : MonoBehaviour
         doLast = false;
         isPlaying = true;
         isTyping = false;
+        if (playerController != null && slowDownPlayer) playerController.SetWalkingSpeed(1f);
         StartCoroutine(CurrentSentence(subtitles[0]));
     }
 
     public void StopActiveSubtitles()
     {
+        if (playerController != null && slowDownPlayer) playerController.SetWalkingSpeed(5f);
         StopAllCoroutines();
     }
 
@@ -209,7 +216,7 @@ public class AudioSystem : MonoBehaviour
         isPlaying = false;
         
         finalEvent.Invoke();
-
+        if (playerController != null && slowDownPlayer) playerController.SetWalkingSpeed(5f);
     }
 }
 

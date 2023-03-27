@@ -106,4 +106,9 @@ public class PlayerController : MonoBehaviour, ITrigger
 
         return new Vector2(xMagnitude, yMagnitude);
     }
+
+    public void SetWalkingSpeed(float newMaxSpeed)
+    {
+        maxWalkingSpeed = newMaxSpeed;
+    }
 }
