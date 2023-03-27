@@ -105,6 +105,7 @@ public class DisplayInteraction : MonoBehaviour
     private void DisableInteraction()
     {
         interactionDisplay.GetComponent<RawImage>().enabled = false;
+        interactionDisplayText.enabled = false;
         isEnabled = false;
     }
 
@@ -113,6 +114,7 @@ public class DisplayInteraction : MonoBehaviour
         if (!isEnabled)
         {
             interactionDisplay.GetComponent<RawImage>().enabled = true;
+            interactionDisplayText.enabled = true;
             interactionDisplay.transform.position = myScreenPositon + normalizedTargetVector * (Screen.width * 1.5f);
             interactionDisplayText.text = interactionKey.ToString();
         }

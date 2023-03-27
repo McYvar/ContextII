@@ -5,6 +5,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using UnityEngine.UIElements;
 
 [RequireComponent(typeof(BoxCollider)), RequireComponent(typeof(AudioSystem)), RequireComponent(typeof(MeshRenderer))]
 public class AudioSystem : MonoBehaviour
@@ -41,6 +42,8 @@ public class AudioSystem : MonoBehaviour
     public bool isPlaying = false;
     bool isTyping = false;
 
+    bool skipSentence = false;
+
     private void Awake()
     {
         myCollider = GetComponent<BoxCollider>();
@@ -52,6 +55,10 @@ public class AudioSystem : MonoBehaviour
     {
         if (enableSubtitles) mc.subtitleText.enabled = true;
         else mc.subtitleText.enabled = false;
+
+        if (skipSentence)
+            if (Input.GetMouseButtonDown(0))
+                skipSentence = false;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -99,6 +106,8 @@ public class AudioSystem : MonoBehaviour
     // sentence generator based on input in the subtitleInput, will generate lines with pre-setup timings
     IEnumerator CurrentSentence(SubtitleInput currentSubtitle)
     {
+        yield return new WaitUntil(() => !skipSentence);
+        yield return new WaitUntil(() => !Input.GetMouseButton(0));
         mc.TurnOffAllSubtitleElements();
         subtitleIterator++;
 
@@ -124,11 +133,16 @@ public class AudioSystem : MonoBehaviour
         if (currentSubtitle.subtitle.Length > 0)
         {
             int currentSymbol = 0;
-            while (currentSubtitle.subtitle.Length != currentSymbol && !goNext)
+            while (currentSubtitle.subtitle.Length != currentSymbol && !goNext && !Input.GetMouseButtonDown(0))
             {
                 mc.subtitleText.text += currentSubtitle.subtitle[currentSymbol];
                 currentSymbol++;
                 yield return new WaitForSeconds(currentSubtitle.textSpeed);
+            }
+            if (Input.GetMouseButtonDown(0))
+            {
+                mc.subtitleText.text = currentSubtitle.subtitle;
+                skipSentence = true;
             }
             isTyping = false;
         }
@@ -141,11 +155,16 @@ public class AudioSystem : MonoBehaviour
             mc.imageRightFullBalloon.enabled = true;
 
             int currentSymbol = 0;
-            while (currentSubtitle.textRight.Length != currentSymbol && !goNext)
+            while (currentSubtitle.textRight.Length != currentSymbol && !goNext && !Input.GetMouseButtonDown(0))
             {
                 mc.textRightFull.text += currentSubtitle.textRight[currentSymbol];
                 currentSymbol++;
                 yield return new WaitForSeconds(currentSubtitle.textSpeed);
+            }
+            if (Input.GetMouseButtonDown(0))
+            {
+                mc.textRightFull.text = currentSubtitle.textRight;
+                skipSentence = true;
             }
             isTyping = false;
         }
@@ -158,11 +177,16 @@ public class AudioSystem : MonoBehaviour
             mc.imageLeftFullBalloon.enabled = true;
 
             int currentSymbol = 0;
-            while (currentSubtitle.textLeft.Length != currentSymbol && !goNext)
+            while (currentSubtitle.textLeft.Length != currentSymbol && !goNext && !Input.GetMouseButtonDown(0))
             {
                 mc.textLeftFull.text += currentSubtitle.textLeft[currentSymbol];
                 currentSymbol++;
                 yield return new WaitForSeconds(currentSubtitle.textSpeed);
+            }
+            if (Input.GetMouseButtonDown(0))
+            {
+                mc.textLeftFull.text = currentSubtitle.textLeft;
+                skipSentence = true;
             }
             isTyping = false;
         }
@@ -183,12 +207,18 @@ public class AudioSystem : MonoBehaviour
             else maxLength = currentSubtitle.textRight.Length;
 
             int currentSymbol = 0;
-            while (maxLength != currentSymbol && !goNext)
+            while (maxLength != currentSymbol && !goNext && !Input.GetMouseButtonDown(0))
             {
                 if (currentSubtitle.textLeft.Length > currentSymbol) mc.textLeft.text += currentSubtitle.textLeft[currentSymbol];
                 if (currentSubtitle.textRight.Length > currentSymbol) mc.textRight.text += currentSubtitle.textRight[currentSymbol];
                 currentSymbol++;
                 yield return new WaitForSeconds(currentSubtitle.textSpeed);
+            }
+            if (Input.GetMouseButtonDown(0))
+            {
+                if (currentSubtitle.textLeft.Length > currentSymbol) mc.textLeft.text += currentSubtitle.textLeft;
+                if (currentSubtitle.textRight.Length > currentSymbol) mc.textRight.text += currentSubtitle.textRight;
+                skipSentence = true;
             }
             isTyping = false;
         }
