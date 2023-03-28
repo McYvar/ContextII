@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4962248706031887873}
   - component: {fileID: 4778079044733583817}
   - component: {fileID: 647818706324128273}
+  - component: {fileID: 1055185763626330873}
   m_Layer: 0
   m_Name: BookcaseLarge
   m_TagString: Untagged
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &1055185763626330873
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4451855086468010287}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -8943216176453939197, guid: 99b1e137b2e84c84d8a05faaa34412d6, type: 3}
