@@ -112,6 +112,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioMaster: {fileID: 0}
   mc: {fileID: 0}
+  doInterupt: 1
+  doRemove: 1
+  responseType: 0
+  slowDownPlayer: 1
+  speedUp: 1000
   subtitles: []
   finalEvent:
     m_PersistentCalls:
