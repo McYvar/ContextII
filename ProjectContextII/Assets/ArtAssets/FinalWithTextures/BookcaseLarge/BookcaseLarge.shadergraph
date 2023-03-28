@@ -483,7 +483,7 @@
     "m_StageCapability": 3,
     "m_BareResource": false,
     "m_Texture": {
-        "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"f4bf34dd500beee4398271a8bfb711e1\",\"type\":3}}",
+        "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"144cc6afd84e1384bb761cca1f0f5520\",\"type\":3}}",
         "m_Guid": ""
     },
     "m_DefaultType": 0
@@ -678,10 +678,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -473.5999755859375,
-            "y": 82.4000015258789,
-            "width": 208.0,
-            "height": 432.0000305175781
+            "x": -448.0000305175781,
+            "y": -137.99998474121095,
+            "width": 207.99998474121095,
+            "height": 435.0
         }
     },
     "m_Slots": [
@@ -1290,10 +1290,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -705.6000366210938,
-            "y": 175.1999969482422,
-            "width": 208.00003051757813,
-            "height": 432.00006103515627
+            "x": -700.0,
+            "y": 170.99998474121095,
+            "width": 208.0,
+            "height": 435.0
         }
     },
     "m_Slots": [
