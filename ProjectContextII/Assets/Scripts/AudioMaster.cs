@@ -12,10 +12,12 @@ public class AudioMaster : MonoBehaviour
 
     [Space(10), Header("Main audiomixer for the audio")]
     [SerializeField] AudioMixerGroup audioMixerGroup;
-    [SerializeField] AudioSource playerAudioSource; // source in 3d space would be in the players their head
+    [SerializeField] AudioSource playerAudioSource;
 
     [Space(10), Header("Add subtitles aswell if needed")]
     [SerializeField] AudioSystem currentSubtitles;
+
+    [HideInInspector] public bool isPlaying;
 
     private void Awake()
     {
@@ -32,6 +34,11 @@ public class AudioMaster : MonoBehaviour
 
             if (currentSubtitles != null) currentSubtitles.StartSubtitles();
         }
+    }
+
+    private void Update()
+    {
+        isPlaying = playerAudioSource.isPlaying;
     }
 
     // Coroutine to wait until a source is finished with playing

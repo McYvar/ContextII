@@ -208,14 +208,16 @@ public class AudioSystem : MonoBehaviour
     IEnumerator NextSentence(SubtitleInput nextSubtitle)
     {
         yield return new WaitUntil(() => !isTyping);
-        yield return new WaitUntil(() => (Input.GetMouseButtonDown(0) && !goNext) || (nextSubtitle.forceToThisOneOnFinish));
+        yield return new WaitUntil(() => (Input.GetMouseButtonDown(0) && !goNext) || 
+                                         (nextSubtitle.forceToThisOneOnFinish && !audioMaster.isPlaying));
         goNext = true;
     }
 
     IEnumerator LastSentence()
     {
-        yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
+        yield return new WaitUntil(() => Input.GetMouseButtonDown(0) || !audioMaster.isPlaying);
         mc.TurnOffAllSubtitleElements();
+        audioMaster.StopPlayingCurrentClip();
         isPlaying = false;
 
         finalEvent.Invoke();
