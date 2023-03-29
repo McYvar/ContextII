@@ -33,7 +33,7 @@ public class AudioSystem : MonoBehaviour
 
     bool doLast = false;
 
-    public bool isPlaying = false;
+    [HideInInspector] public bool isPlaying = false;
     bool isTyping = false;
 
 
@@ -98,12 +98,6 @@ public class AudioSystem : MonoBehaviour
         yield return new WaitUntil(() => !Input.GetMouseButton(0));
         mc.TurnOffAllSubtitleElements();
         subtitleIterator++;
-
-        /// We need four cases:
-        /// 1. The default narrator case where only the narrator text is filled in
-        /// 2. The case where there is a character on the left side and text on the right side
-        /// 3. The other way around
-        /// 4. The case if both text and characters ard filled in, they appear on both side with smaller text boxes
 
         isTyping = true;
         if (subtitleIterator < subtitles.Length) StartCoroutine(NextSentence(subtitles[subtitleIterator]));
