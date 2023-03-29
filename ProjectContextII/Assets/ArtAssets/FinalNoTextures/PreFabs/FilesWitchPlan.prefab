@@ -178,9 +178,9 @@ MonoBehaviour:
   displayHints: 1
   interactionKey: 101
   maxInteractionDisplayAngle: 50
-  maxInteractionAngle: 15
+  maxInteractionAngle: 25
   interactionDisplayOffset: 0.125
-  interactionRadius: 8.5
+  interactionRadius: 2.5
   interactionDelay: 2
   smoothTime: 0.078
   audioMaster: {fileID: 0}
