@@ -155,9 +155,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31cd598710d759f45b5af61a27c10b19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiLocation: {x: 5.362, y: 0.034, z: 1.386}
+  uiLocation: {x: 0.493, y: -0.571, z: 0.923}
   uiRotation: {x: 0.043355443, y: -0.099994615, z: 0.15274107, w: 0.98223805}
-  uiScale: {x: 0.3, y: 0.3, z: 0.3}
+  uiScale: {x: 0.35, y: 0.35, z: 0.35}
   throwDistanceOffset: 1
   throwStrenght: 10
   maxRaycastDist: 0.5
