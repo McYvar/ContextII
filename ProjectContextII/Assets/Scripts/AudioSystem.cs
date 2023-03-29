@@ -122,7 +122,6 @@ public class AudioSystem : MonoBehaviour
                 if (!Input.GetMouseButton(0))
                     yield return new WaitForSeconds(currentSubtitle.textSpeed);
             }
-            isTyping = false;
         }
 
         // case 2: If theres a character on the left side
@@ -140,7 +139,6 @@ public class AudioSystem : MonoBehaviour
                 if (!Input.GetMouseButton(0))
                     yield return new WaitForSeconds(currentSubtitle.textSpeed);
             }
-            isTyping = false;
         }
 
         // case 3: If theres a character on the right side
@@ -158,7 +156,6 @@ public class AudioSystem : MonoBehaviour
                 if (!Input.GetMouseButton(0))
                     yield return new WaitForSeconds(currentSubtitle.textSpeed);
             }
-            isTyping = false;
         }
 
         // case 4: If theres a character on both sides
@@ -185,8 +182,8 @@ public class AudioSystem : MonoBehaviour
                 if (!Input.GetMouseButton(0))
                     yield return new WaitForSeconds(currentSubtitle.textSpeed);
             }
-            isTyping = false;
         }
+        isTyping = false;
 
         yield return new WaitUntil(() => goNext || doLast);
 
