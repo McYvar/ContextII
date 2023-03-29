@@ -14,6 +14,9 @@ public class TimedEvent : MonoBehaviour
     [Space(10), Header("What should be able to trigger this event?")]
     [SerializeField] TriggerType responseType;
 
+    [SerializeField] int witchScene;
+    [SerializeField] int pirateScene;
+
     bool running;
     float timer;
     BoxCollider myCollider;
@@ -75,12 +78,12 @@ public class TimedEvent : MonoBehaviour
         if (booktype.characterPlanType == CharacterPlanType.PIRATE_PLAN)
         {
             // goto pirate scene
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(pirateScene);
         }
         if (booktype.characterPlanType == CharacterPlanType.WITCH_PLAN)
         {
             // goto witch scene
-            SceneManager.LoadScene(3);
+            SceneManager.LoadScene(witchScene);
         }
     }
 }
